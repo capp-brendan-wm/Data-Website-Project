@@ -16,7 +16,7 @@ function drawAnnotations() {
             '2014', {type: 'string', role: 'annotation'}],
         ['Lottery', 312100270, '312M', 319500000, '320M'],
         ['Off-Track Betting', 3644167, '3.6M', 3723791, '3.7M'],
-        ['Mohegan Sun', 157863949, '160M', 148345903, '2.9M'],
+        ['Mohegan Sun', 157863949, '160M', 148345903, '140M'],
         ['Casino Subtotal', 296395892, '300M', 279873545, '280M'],
         ['Foxwoods', 138531943, '140M', 131527642, '131M']
     ]);
@@ -54,5 +54,24 @@ function drawAnnotations() {
     };
     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
     chart.draw(data, options);
+}
+google.setOnLoadCallback(drawChart);
+function drawChart() {
 
+    var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['2010',     196449110],
+        ['2011',      122237727],
+        ['2012',  123872079],
+        ['2013', 128098469],
+        ['2014',    122621630]
+    ]);
+
+    var options = {
+        title: 'Amount of Money Made Off of Hunting'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
 }
